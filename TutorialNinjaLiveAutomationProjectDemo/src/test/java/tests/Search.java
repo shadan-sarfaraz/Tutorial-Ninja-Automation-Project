@@ -191,7 +191,7 @@ public class Search extends Base {
 		Assert.assertTrue(searchPage.didProductDisplayedInAscendingOrder());
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 15)
 	public void verifyShowProductByLimitingount() {
 		SoftAssert softAssert = new SoftAssert();
 		headerOptions.enterProductIntoSearchBoxField(prop.getProperty("existingProductTwo"));
@@ -214,7 +214,7 @@ public class Search extends Base {
 		softAssert.assertAll();
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 16)
 	public void verifyDisplayingOfSearchFieldAndSearchButtonOnAllPagesOfTheApplication() {
 		Assert.assertTrue(headerOptions.areSearchBoxFieldAndSearchButtonDisplayed());
 		navigateToPage(prop.getProperty("contactUsPage"));
@@ -247,6 +247,17 @@ public class Search extends Base {
 		navigateBackInBrowser(headerOptions.getDriver());
 		orderHistoryPage = myAccountPage.clickOnViewYourOrderHistoryOption();
 		Assert.assertTrue(headerOptions.areSearchBoxFieldAndSearchButtonDisplayed());
+		headerOptions.enterProductIntoSearchBoxField(prop.getProperty("existingProduct"));
+		searchPage = headerOptions.clickOnSearchButton();
+		productDisplayPage = searchPage.clickOnProductOneName();
+		productDisplayPage.clickOnAddToCartButton();
+		shoppingCartPage = productDisplayPage.selectShopingCartOptionOnTheSuccessMessage();
+		checkoutPage = shoppingCartPage.clickOnCheckoutButton();
+		checkoutPage.clickOnBillingDetailsContinueButton();
+		checkoutPage.clickOnDeliveryDetailsContinueButton();
+		checkoutPage.clickOnDeliveryMethodContinueButton();
+		checkoutPage.selectTermsAndConditionOptio();
+		checkoutPage.clickOnPaymentMethodContinueButton();
 		// orderInformationpage = orderHistoryPage.selectViewOption();
 		// Assert.assertTrue(headerOptions.areSearchBoxFieldAndSearchButtonDisplayed());
 		headerOptions.clickOnMyAccountDropMenu();

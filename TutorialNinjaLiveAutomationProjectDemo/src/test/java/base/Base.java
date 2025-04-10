@@ -22,6 +22,7 @@ import pages.AddressBookPage;
 import pages.AffiliatePage;
 import pages.BrandPage;
 import pages.ChangePasswordPage;
+import pages.CheckoutPage;
 import pages.ContactUsPage;
 import pages.DeliveryInformationPage;
 import pages.EditAddressPage;
@@ -45,7 +46,7 @@ import pages.RegisterPage;
 import pages.ReturnInformationPage;
 import pages.RightColumnOptions;
 import pages.SearchPage;
-import pages.ShopingCartPage;
+import pages.ShoppingCartPage;
 import pages.SiteMapPage;
 import pages.SpecialOffersPage;
 import pages.TermsAndConditionsPage;
@@ -64,7 +65,7 @@ public class Base {
 	public RightColumnOptions rightColumnOptions;
 	public MyAccountInformationPage myAccountInformationPage;
 	public ContactUsPage contactUsPage;
-	public ShopingCartPage shopingCart;
+	public ShoppingCartPage shopingCart;
 	public HomePage homePage;
 	public SearchPage searchPage;
 	public ForgottenPasswordPage forgottenPasswordPage;
@@ -92,7 +93,9 @@ public class Base {
 	public OrderInformationPage orderInformationpage;
 	public ProductReturnsPage productReturnsPage;
 	public AffiliatePage affiliatePage;
-	public ReturnInformationPage returnInformationPage ;
+	public ReturnInformationPage returnInformationPage;
+	public ShoppingCartPage shoppingCartPage;
+	public CheckoutPage checkoutPage;
 
 	public WebDriver openBrowserAndApplicationPageURL() {
 		prop = CommonUtilities.loadPropertiesFile();

@@ -112,24 +112,24 @@ public class HeaderOptions extends RootPage {
 		return new HomePage(driver);
 	}
 
-	public ShopingCartPage selectCheckoutOption() {
+	public ShoppingCartPage selectCheckoutOption() {
 		elementUtilities.clickOnElement(checkOutOption);
-		return new ShopingCartPage(driver);
+		return new ShoppingCartPage(driver);
 	}
 
-	public ShopingCartPage selectCheckoutIcon() {
+	public ShoppingCartPage selectCheckoutIcon() {
 		elementUtilities.clickOnElement(checkOutHeaderOption);
-		return new ShopingCartPage(driver);
+		return new ShoppingCartPage(driver);
 	}
 
-	public ShopingCartPage selectShoppingCartHeaderOption() {
+	public ShoppingCartPage selectShoppingCartHeaderOption() {
 		elementUtilities.clickOnElement(shoppingCartOption);
-		return new ShopingCartPage(driver);
+		return new ShoppingCartPage(driver);
 	}
 
-	public ShopingCartPage selectShoppingCartIconOption() {
+	public ShoppingCartPage selectShoppingCartIconOption() {
 		elementUtilities.clickOnElement(shoppingCartHeaderOption);
-		return new ShopingCartPage(driver);
+		return new ShoppingCartPage(driver);
 	}
 
 	public LoginPage selectWishListIconOption() {

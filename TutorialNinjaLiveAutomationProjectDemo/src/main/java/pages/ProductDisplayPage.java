@@ -15,12 +15,24 @@ public class ProductDisplayPage extends RootPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(id="button-cart")
+
+	@FindBy(id = "button-cart")
 	private WebElement addtoCartButton;
-	
+
+	@FindBy(id = "//div[@class='alert alert-success alert-dismissible']/a[text='shopping cart")
+	private WebElement shopingCartOption;
+
+	public void clickOnAddToCartButton() {
+		elementUtilities.clickOnElement(addtoCartButton);
+	}
+
 	public boolean didWeNavigateToProductDisplayPage() {
 		return elementUtilities.isElementDisplayed(addtoCartButton);
 	}
-	
+
+	public ShoppingCartPage selectShopingCartOptionOnTheSuccessMessage() {
+		elementUtilities.waitForElementAndClick(shopingCartOption, 10);
+		return new ShoppingCartPage(driver);
+	}
+
 }
