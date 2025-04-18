@@ -58,7 +58,7 @@ public class RightColumnOptions extends RootPage {
 
 	@FindBy(xpath = "//a[@class='list-group-item'][text()='Newsletter']")
 	private WebElement newsLetterOption;
-	
+
 	public boolean isLogoutOptionDisplayed() {
 		return elementUtilities.isElementDisplayed(logoutOption);
 	}
@@ -116,6 +116,11 @@ public class RightColumnOptions extends RootPage {
 	public LoginPage clickOnMyAccountOption() {
 		elementUtilities.clickOnElement(myAccountOption);
 		return new LoginPage(driver);
+	}
+
+	public MyAccountPage clickOnMyAccountOptionAfterLogin() {
+		elementUtilities.clickOnElement(myAccountOption);
+		return new MyAccountPage(driver);
 	}
 
 	public ForgottenPasswordPage clickOnForgottenPasswordOption() {

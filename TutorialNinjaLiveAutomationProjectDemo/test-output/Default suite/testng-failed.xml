@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.Search">
+      <class name="tests.Register">
         <methods>
           <include name="teardown"/>
-          <include name="verifyDisplayingOfSearchFieldAndSearchButtonOnAllPagesOfTheApplication"/>
+          <include name="verifyRegisteringAccountUsingPasswordsWhichAreNotFollowingPasswordComplexityStandards"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- tests.Search -->
+      </class> <!-- tests.Register -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

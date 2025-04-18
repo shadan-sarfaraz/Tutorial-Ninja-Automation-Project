@@ -38,7 +38,7 @@ public class MyAccountPage extends RootPage {
 	@FindBy(linkText = "Downloads")
 	private WebElement downloadsOption;
 
-	@FindBy(linkText = "Your Reward Points")
+	@FindBy(xpath = "//a[normalize-space()='Your Reward Points']")
 	private WebElement yourRewardPointsOption;
 
 	@FindBy(linkText = "View your return requests")
@@ -50,8 +50,11 @@ public class MyAccountPage extends RootPage {
 	@FindBy(linkText = "Recurring payments")
 	private WebElement recurringPaymentsOptions;
 
-	@FindBy(linkText = "Edit your affiliate information")
+	@FindBy(linkText = "Register for an affiliate account")
 	private WebElement registerForAnAffliateAccountOptions;
+
+	@FindBy(linkText = "Edit your affiliate information")
+	private WebElement editYorAnAffliateInformationOptions;
 
 	@FindBy(linkText = "Edit your affiliate information")
 	private WebElement customAffiliateTrackingOption;
@@ -62,7 +65,8 @@ public class MyAccountPage extends RootPage {
 	}
 
 	public AffiliatePage clickOnEditYourAffliateInformationOptions() {
-		elementUtilities.clickOnElement(registerForAnAffliateAccountOptions);
+		elementUtilities.clickEitherOfTheElements(registerForAnAffliateAccountOptions,
+				editYorAnAffliateInformationOptions);
 		return new AffiliatePage(driver);
 	}
 
@@ -82,7 +86,7 @@ public class MyAccountPage extends RootPage {
 	}
 
 	public RewardPointsPage clickOnRewardPointsOption() {
-		elementUtilities.clickOnElement(downloadsOption);
+		elementUtilities.clickOnElement(yourRewardPointsOption);
 		return new RewardPointsPage(driver);
 	}
 
@@ -92,7 +96,7 @@ public class MyAccountPage extends RootPage {
 	}
 
 	public OrderHistoryPage clickOnViewYourOrderHistoryOption() {
-		elementUtilities.clickOnElement(viewYourOrderHistoryOption);
+		elementUtilities.waitForElementAndClick(viewYourOrderHistoryOption, 10);
 		return new OrderHistoryPage(driver);
 	}
 

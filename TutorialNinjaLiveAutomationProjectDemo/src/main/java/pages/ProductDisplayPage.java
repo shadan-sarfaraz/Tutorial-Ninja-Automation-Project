@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import pages.root.RootPage;
+import utils.CommonUtilities;
 
 public class ProductDisplayPage extends RootPage {
 	WebDriver driver;
@@ -19,8 +20,20 @@ public class ProductDisplayPage extends RootPage {
 	@FindBy(id = "button-cart")
 	private WebElement addtoCartButton;
 
-	@FindBy(id = "//div[@class='alert alert-success alert-dismissible']/a[text='shopping cart")
+	@FindBy(xpath = "//a[normalize-space()='shopping cart']")
 	private WebElement shopingCartOption;
+
+	@FindBy(xpath = "//a[normalize-space()='wish list']")
+	private WebElement wishListOption;
+
+	@FindBy(xpath = "//a[normalize-space()='product comparison']")
+	private WebElement productComperisonOption;
+
+	public ShoppingCartPage clickOnAddToCartButtonAndSelectShoppingCartOptions() {
+		clickOnAddToCartButton();
+		selectShopingCartOptionOnTheSuccessMessage();
+		return new ShoppingCartPage(driver);
+	}
 
 	public void clickOnAddToCartButton() {
 		elementUtilities.clickOnElement(addtoCartButton);
@@ -31,8 +44,20 @@ public class ProductDisplayPage extends RootPage {
 	}
 
 	public ShoppingCartPage selectShopingCartOptionOnTheSuccessMessage() {
-		elementUtilities.waitForElementAndClick(shopingCartOption, 10);
+		elementUtilities.waitForElementAndClick(shopingCartOption, CommonUtilities.AVERAGE_TIME);
 		return new ShoppingCartPage(driver);
+	}
+
+	public boolean isShoppingCartOptionDisplayedOnTheSuccessMessage() {
+		return elementUtilities.waitAndCheckElementDisplayStatus(shopingCartOption, CommonUtilities.AVERAGE_TIME);
+	}
+
+	public boolean isWishListOptionDisplayedOnTheSuccessMessage() {
+		return elementUtilities.waitAndCheckElementDisplayStatus(wishListOption, CommonUtilities.AVERAGE_TIME);
+	}
+
+	public boolean isProductComperisonOptionDisplayedOnTheSuccessMessage() {
+		return elementUtilities.waitAndCheckElementDisplayStatus(productComperisonOption, CommonUtilities.AVERAGE_TIME);
 	}
 
 }

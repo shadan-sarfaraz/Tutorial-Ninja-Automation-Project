@@ -2,6 +2,7 @@ package tests;
 
 import java.io.IOException;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,8 +11,9 @@ import base.Base;
 import pages.HeaderOptions;
 import utils.CommonUtilities;
 
-public class Logout extends Base {
-
+public class LogoutTest extends Base {
+	public WebDriver driver;
+	
 	@BeforeMethod
 	public void setup() {
 		driver = openBrowserAndApplicationPageURL();

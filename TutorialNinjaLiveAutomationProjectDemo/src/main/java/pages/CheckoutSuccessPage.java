@@ -7,20 +7,21 @@ import org.openqa.selenium.support.PageFactory;
 
 import pages.root.RootPage;
 
-public class OrderInformationPage extends RootPage {
+public class CheckoutSuccessPage extends RootPage {
 	WebDriver driver;
 
-	public OrderInformationPage(WebDriver driver) {
+	public CheckoutSuccessPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//a[@*='Return']")
-	private WebElement returnOption;
+	@FindBy(linkText = "Continue")
+	private WebElement continueButton;
 
-	public ProductReturnsPage selectReturnOption() {
-		elementUtilities.clickOnElement(returnOption);
-		return new ProductReturnsPage(driver);
+	public HomePage clickOnContinueButton() {
+		elementUtilities.clickOnElement(continueButton);
+		return new HomePage(driver);
 	}
+
 }

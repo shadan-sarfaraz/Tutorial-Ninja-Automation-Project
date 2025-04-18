@@ -3,6 +3,7 @@ package tests;
 import java.io.IOException;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,7 +14,8 @@ import pages.LoginPage;
 import pages.MyAccountPage;
 import utils.CommonUtilities;
 
-public class Login extends Base {
+public class LoginTest extends Base {
+	public WebDriver driver;
 
 	@BeforeMethod
 	public void setup() {
@@ -362,7 +364,7 @@ public class Login extends Base {
 	public void verifyLoginPageBreadcrumbURLTitleHeading() {
 
 		Assert.assertEquals(getPageTitle(loginPage.getDriver()), "Account Login");
-		Assert.assertEquals(getPageURL(loginPage.getDriver()), prop.getProperty("loginPageURL"));
+		Assert.assertEquals(getPageURL(loginPage.getDriver()), getBaseURL() + prop.getProperty("loginPageURL"));
 		Assert.assertTrue(loginPage.didWeNavigateToLoginPage());
 		Assert.assertEquals(loginPage.getFirstHeading(), "New Customer");
 		Assert.assertEquals(loginPage.getSecondHeading(), "Returning Customer");

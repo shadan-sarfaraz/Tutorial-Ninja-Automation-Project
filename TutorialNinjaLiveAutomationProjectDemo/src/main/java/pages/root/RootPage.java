@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import pages.AccountLogoutPage;
 import pages.AccountSuccessPage;
-import pages.FooterOptionsPage;
+import pages.FooterOptions;
 import pages.HeaderOptions;
 import pages.HomePage;
 import pages.LoginPage;
@@ -78,8 +78,8 @@ public class RootPage {
 		return new AccountSuccessPage(driver);
 	}
 
-	public FooterOptionsPage getFooterOptions() {
-		return new FooterOptionsPage(driver);
+	public FooterOptions getFooterOptions() {
+		return new FooterOptions(driver);
 	}
 
 	public LoginPage getLoginPage() {

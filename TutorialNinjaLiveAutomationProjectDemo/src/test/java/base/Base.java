@@ -23,12 +23,15 @@ import pages.AffiliatePage;
 import pages.BrandPage;
 import pages.ChangePasswordPage;
 import pages.CheckoutPage;
+import pages.CheckoutSuccessPage;
 import pages.ContactUsPage;
 import pages.DeliveryInformationPage;
+import pages.DownloadsPage;
 import pages.EditAddressPage;
-import pages.FooterOptionsPage;
+import pages.FooterOptions;
 import pages.ForgottenPasswordPage;
 import pages.GiftCertificatePage;
+import pages.GuestCheckoutPage;
 import pages.HeaderOptions;
 import pages.HomePage;
 import pages.LoginPage;
@@ -53,7 +56,7 @@ import pages.TermsAndConditionsPage;
 import utils.CommonUtilities;
 
 public class Base {
-	public WebDriver driver;
+	private WebDriver driver;
 	public Properties prop;
 	public String browserName;
 	public HeaderOptions headerOptions;
@@ -69,7 +72,7 @@ public class Base {
 	public HomePage homePage;
 	public SearchPage searchPage;
 	public ForgottenPasswordPage forgottenPasswordPage;
-	public FooterOptionsPage footerOptions;
+	public FooterOptions footerOptions;
 	public AboutUsPage aboutUsPage;
 	public DeliveryInformationPage deliveryInformationOptions;
 	public PrivacyPolicyPage privacyPolicyPage;
@@ -96,6 +99,9 @@ public class Base {
 	public ReturnInformationPage returnInformationPage;
 	public ShoppingCartPage shoppingCartPage;
 	public CheckoutPage checkoutPage;
+	public CheckoutSuccessPage checkoutSuccessPage;
+	public DownloadsPage downloadsPage;
+	public GuestCheckoutPage guestCheckoutPage;
 
 	public WebDriver openBrowserAndApplicationPageURL() {
 		prop = CommonUtilities.loadPropertiesFile();
@@ -112,7 +118,7 @@ public class Base {
 			driver = new SafariDriver();
 		}
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(CommonUtilities.MIN_TIME));
 		driver.get(prop.getProperty("appURL"));
 		return driver;
 	}
@@ -188,6 +194,20 @@ public class Base {
 		prop.setProperty("validPasswordThree", oldPassword);
 		prop = CommonUtilities.storePropertiesFile(prop);
 		return prop;
+	}
+
+	public void refreshAndNavigateToPage(WebDriver driver, String pageURL) {
+		refreshPage(driver);
+		navigateToPage(pageURL);
+	}
+
+	public void pressTwoKeysTogether(WebDriver driver, Keys keyNameOne, Keys keyNameTwo) {
+		actions = getActions(driver);
+		actions.keyDown(keyNameOne).sendKeys(keyNameTwo).keyUp(keyNameOne).build().perform();
+	}
+
+	public String getBaseURL() {
+		return prop.getProperty("appURL");
 	}
 
 }

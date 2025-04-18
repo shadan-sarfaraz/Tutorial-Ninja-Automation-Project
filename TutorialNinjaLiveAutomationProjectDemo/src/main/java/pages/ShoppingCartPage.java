@@ -20,8 +20,13 @@ public class ShoppingCartPage extends RootPage {
 	private WebElement checkOutButton;
 
 	public CheckoutPage clickOnCheckoutButton() {
-		elementUtilities.clickOnElement(checkOutButton);
+		elementUtilities.waitForElementAndClick(checkOutButton, 10);
 		return new CheckoutPage(driver);
+	}
+	
+	public GuestCheckoutPage clickOnCheckoutButtonWithoutLogin() {
+		elementUtilities.waitForElementAndClick(checkOutButton, 10);
+		return new GuestCheckoutPage(driver);
 	}
 
 }

@@ -61,7 +61,7 @@ public class HeaderOptions extends RootPage {
 	@FindBy(name = "search")
 	private WebElement searchBoxField;
 
-	@FindBy(linkText = "My Account")
+	@FindBy(linkText = "//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='My Account']")
 	private WebElement myAccountOption;
 
 	public MyAccountPage selectMyaccountOption() {
@@ -83,6 +83,12 @@ public class HeaderOptions extends RootPage {
 
 	public String getSearchBoxFieldPlaceholderText() {
 		return elementUtilities.getElementDomAttribute(searchBoxField, "placeholder");
+	}
+
+	public SearchPage enterProductAndClickOnSearchButton(String productName) {
+		enterProductIntoSearchBoxField(productName);
+		clickOnSearchButton();
+		return new SearchPage(driver);
 	}
 
 	public void enterProductIntoSearchBoxField(String productName) {
@@ -164,6 +170,11 @@ public class HeaderOptions extends RootPage {
 	public LoginPage navigateToLoginPage() {
 		clickOnMyAccountDropMenu();
 		return selectLoginOption();
+	}
+
+	public RegisterPage navigateToRegisterPage() {
+		clickOnMyAccountDropMenu();
+		return selectRegisterOption();
 	}
 
 }

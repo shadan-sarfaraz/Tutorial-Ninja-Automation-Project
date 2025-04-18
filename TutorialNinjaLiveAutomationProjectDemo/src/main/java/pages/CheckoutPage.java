@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import pages.root.RootPage;
+import utils.CommonUtilities;
 
 public class CheckoutPage extends RootPage {
 	WebDriver driver;
@@ -34,28 +35,39 @@ public class CheckoutPage extends RootPage {
 	@FindBy(id = "button-confirm")
 	private WebElement confirmOrderButton;
 
-	public void clickOnConfirmOrderButton() {
-		elementUtilities.waitForElementAndClick(confirmOrderButton, 10);
+	public CheckoutSuccessPage placeOrder() {
+		clickOnBillingDetailsContinueButton();
+		clickOnDeliveryDetailsContinueButton();
+		clickOnDeliveryMethodContinueButton();
+		selectTermsAndConditionOptio();
+		clickOnPaymentMethodContinueButton();
+		clickOnConfirmOrderButton();
+		return new CheckoutSuccessPage(driver);
+	}
+
+	public CheckoutSuccessPage clickOnConfirmOrderButton() {
+		elementUtilities.waitForElementAndClick(confirmOrderButton, CommonUtilities.AVERAGE_TIME);
+		return new CheckoutSuccessPage(driver);
 	}
 
 	public void clickOnPaymentMethodContinueButton() {
-		elementUtilities.clickOnElement(paymentMethodContinueButton);
+		elementUtilities.waitForElementAndClick(paymentMethodContinueButton, CommonUtilities.AVERAGE_TIME);
 	}
 
 	public void selectTermsAndConditionOptio() {
-		elementUtilities.waitForElementAndClick(termsAndConditionOptio, 10);
+		elementUtilities.waitForElementAndClick(termsAndConditionOptio, CommonUtilities.AVERAGE_TIME);
 	}
 
 	public void clickOnDeliveryMethodContinueButton() {
-		elementUtilities.waitForElementAndClick(deliveryMethodContinueButton, 10);
+		elementUtilities.waitForElementAndClick(deliveryMethodContinueButton, CommonUtilities.AVERAGE_TIME);
 	}
 
 	public void clickOnDeliveryDetailsContinueButton() {
-		elementUtilities.waitForElementAndClick(deliveryDetailsContinueButton, 10);
+		elementUtilities.waitForElementAndClick(deliveryDetailsContinueButton, CommonUtilities.AVERAGE_TIME);
 	}
 
 	public void clickOnBillingDetailsContinueButton() {
-		elementUtilities.clickOnElement(billingDetailsContinueButton);
+		elementUtilities.waitForElementAndClick(billingDetailsContinueButton, CommonUtilities.AVERAGE_TIME);
 	}
 
 }

@@ -5,17 +5,13 @@ import org.openqa.selenium.support.PageFactory;
 
 import pages.root.RootPage;
 
-public class HomePage extends RootPage {
+public class GuestCheckoutPage extends RootPage {
 	WebDriver driver;
 
-	public HomePage(WebDriver driver) {
+	public GuestCheckoutPage(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-	}
-
-	public HeaderOptions getHeaderOptions() {
-		return new HeaderOptions(driver);
 	}
 
 }

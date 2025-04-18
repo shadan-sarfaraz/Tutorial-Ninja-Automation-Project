@@ -92,6 +92,18 @@ public class RegisterPage extends RootPage {
 	@FindBy(linkText = "login page")
 	private WebElement loginOption;
 
+	public AccountSuccessPage registerAnAccount(String firstName, String lastName, String emailText,
+			String telephoneNumber, String validPassword) {
+		enterTextIntoFirstNameField(firstName);
+		enterTextIntoLastNameField(lastName);
+		enterTextIntoEmailField(emailText);
+		enterTelephone(telephoneNumber);
+		enterPassword(validPassword);
+		enterConfirmPassword(validPassword);
+		selectPrivacyPolicy();
+		return clickOnContinueButton();
+	}
+
 	public LoginPage selectLoginPageOption() {
 		elementUtilities.clickOnElement(loginOption);
 		return new LoginPage(driver);

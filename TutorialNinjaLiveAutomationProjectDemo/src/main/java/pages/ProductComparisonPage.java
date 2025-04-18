@@ -16,7 +16,7 @@ public class ProductComparisonPage extends RootPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//ul[@class='breadcrumb']//a[text()='Product Comparision']")
+	@FindBy(xpath = "//ul[@class='breadcrumb']//a[text()='Product Comparison']")
 	private WebElement productComparisionBreadcrumb;
 
 	public boolean didWeNaviagteToProductComparisionPage() {

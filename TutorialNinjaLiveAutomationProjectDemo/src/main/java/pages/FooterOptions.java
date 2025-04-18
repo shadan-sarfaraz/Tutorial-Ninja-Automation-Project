@@ -7,11 +7,11 @@ import org.openqa.selenium.support.PageFactory;
 
 import pages.root.RootPage;
 
-public class FooterOptionsPage extends RootPage {
+public class FooterOptions extends RootPage {
 
 	WebDriver driver;
 
-	public FooterOptionsPage(WebDriver driver) {
+	public FooterOptions(WebDriver driver) {
 		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
